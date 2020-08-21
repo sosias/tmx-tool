@@ -1,27 +1,31 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <h1>
+      TMX tool
+      <small class="text-muted">really really basic TMX to CSV exporter</small>
+    </h1>
 
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" id="customFile" @change="onFileChange" />
-        <label class="custom-file-label" for="customFile">{{fileSelectText}}</label>
-      </div>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="customFile" @change="onFileChange" />
+      <label class="custom-file-label" for="customFile">{{fileSelectText}}</label>
+    </div>
 
-      <div id="preview">
-        <img v-if="url" :src="url" />
-      </div>
+    <ExportCSVButton :data=preparedToCSVData :fileName=fileSelectText />
 
-      <tmxViewer v-if="preparedToCSVData" :data=preparedToCSVData />
+    <tmxViewer v-if="preparedToCSVData" :data=preparedToCSVData />
   </div>
 </template>
 
 <script>
 import TmxViewer from './components/TmxViewer.vue'
+import ExportCSVButton from './components/ExportCSVButton.vue'
 
 export default {
   name: 'App',
   components: {
-    TmxViewer
+    TmxViewer,
+    ExportCSVButton
   },
   data() {
     return {
@@ -41,7 +45,6 @@ export default {
           let domElement = this.getXMLdomElement(e.target.result)
           this.data = this.parseData(domElement)
           this.preparedToCSVData = this.prepareCSVArray(this.data)
-          console.log(this.preparedToCSVData)
       }.bind(this)
       reader.readAsText(file);
     },
