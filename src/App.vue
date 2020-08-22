@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h1>
+    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+    <h1 style="max-width: 300px; margin-bottom: 4.5rem;">
       TMX tool
-      <small class="text-muted">really really basic TMX to CSV exporter</small>
+      <small class="text-muted">really really basic "Translation Memory eXchange" to CSV exporter</small>
     </h1>
 
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="customFile" @change="onFileChange" />
-      <label class="custom-file-label" for="customFile">{{fileSelectText}}</label>
+    <div style="display: flex; justify-content: center; margin-bottom: 40px;">
+      <div class="custom-file" style="max-width: 500px;transition: all 0.5s ease;">
+        <input type="file" class="custom-file-input" id="customFile" @change="onFileChange" />
+        <label class="custom-file-label" for="customFile">{{fileSelectText}}</label>
+      </div>
+      <ExportCSVButton v-if="preparedToCSVData" :data=preparedToCSVData :fileName=fileSelectText style="margin-left: 20px;" />
     </div>
 
-    <ExportCSVButton :data=preparedToCSVData :fileName=fileSelectText />
 
     <tmxViewer v-if="preparedToCSVData" :data=preparedToCSVData />
   </div>
@@ -33,7 +35,7 @@ export default {
       url: null,
       data: null,
       preparedToCSVData: null,
-      fileSelectText: "Choose a file"
+      fileSelectText: "Choose a .tmx file"
     }
   },
   methods: {

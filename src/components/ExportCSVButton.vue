@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="btn btn-primary" @click="generateCSVFile" :disabled=isDisabled>Save CSV</button>
+    <button class="btn btn-warning" @click="generateCSVFile" :disabled=isDisabled>Save CSV</button>
     <a style="display: none;" href="" download="data.csv" ref="link"></a>
   </div>
 </template>

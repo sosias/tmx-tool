@@ -1,7 +1,7 @@
 <template>
 
   <table class="viewer table table-striped">
-    <thead class="thead-light">
+    <thead >
       <tr>
         <th scope="col">id</th>
         <th :key=key v-for="(item, key) in data.header" scope="col">{{item}}</th>
