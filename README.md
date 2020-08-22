@@ -1,5 +1,9 @@
 # tmx_tool
 
+Really basic TMX ([Translation Memory eXchange](http://xml.coverpages.org/tmxSpec971212.html)) to csv exporter and in browser viewer. This tool now can only visualize as a table the translations and export them as csv
+
+The separator in the exported csv file is tabulation
+
 ## Project setup
 ```
 yarn install
