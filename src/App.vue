@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
+
+    <div>
     <h1 style="max-width: 300px; margin-bottom: 4.5rem;">
       TMX tool
       <small class="text-muted">really really basic "Translation Memory eXchange" to CSV exporter</small>
@@ -14,20 +15,24 @@
       <ExportCSVButton v-if="preparedToCSVData" :data=preparedToCSVData :fileName=fileSelectText style="margin-left: 20px;" />
     </div>
 
-
     <tmxViewer v-if="preparedToCSVData" :data=preparedToCSVData />
+  </div>
+
+    <Footer />
   </div>
 </template>
 
 <script>
 import TmxViewer from './components/TmxViewer.vue'
 import ExportCSVButton from './components/ExportCSVButton.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
     TmxViewer,
-    ExportCSVButton
+    ExportCSVButton,
+    Footer
   },
   data() {
     return {
@@ -105,6 +110,12 @@ export default {
 
 <style lang="scss">
 #app {
+    height: 100%;
   padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
 }
 </style>
