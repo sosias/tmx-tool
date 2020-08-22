@@ -30,4 +30,17 @@ yarn lint
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [Configuration Reference](https://cli.vuejs.org/config/)
+
+## Publish to github pages
+
+```
+git checkout --orphan gh-pages
+npm run build
+git --work-tree dist add --all
+git --work-tree dist commit -m 'Deploy'
+git push origin HEAD:gh-pages --force
+rm -r dist
+git checkout -f master
+git branch -D gh-pages
+```
