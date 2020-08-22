@@ -1,10 +1,10 @@
 # tmx-tool
 
-Really basic TMX ([Translation Memory eXchange](http://xml.coverpages.org/tmxSpec971212.html)) to csv exporter and in browser viewer. This tool now can only visualize as a table the translations and export them as csv
+Really basic TMX ([Translation Memory eXchange](http://xml.coverpages.org/tmxSpec971212.html)) to csv exporter and in browser viewer. This tool now can only visualize the translations in a table and export them as a csv file
 
 Use the tool at [https://sosias.github.io/tmx-tool](https://sosias.github.io/tmx-tool)
 
-The separator in the exported csv file is tabulation
+The separator in the exported csv file is the tab character
 
 ## Project setup
 ```
