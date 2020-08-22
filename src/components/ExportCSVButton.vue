@@ -20,10 +20,13 @@ export default {
   methods: {
     generateCSVFile(){
       let preparedArray = [this.data.header, ...this.data.body]
+      let csvSeparator = "\t"
 
-      let csvContent = preparedArray.map(e => e.join("\t")).join("\n");
+      let csvContent = preparedArray.map(e => e.join(csvSeparator)).join("\n");
 
-      let blob = new Blob([csvContent], {type: "text/csv"});
+      preparedArray = "SEP="+csvSeparator+" "+preparedArray
+
+      let blob = new Blob([csvContent], {type: "text/csv;charset=UTF-8,%ef%bb%bf"});
       this.$refs.link.href = window.URL.createObjectURL(blob);
       this.$refs.link.download = this.changeExtension(this.fileName, ".csv")
       //window.open(href);
